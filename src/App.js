@@ -25,7 +25,7 @@ class App extends React.Component {
 
         this.state = {
             restaurants: [{name:'something', city:'london'}],
-            lifestyle: {kosher:false, halal:false},
+            lifestyle: {kosher:false, halal:false, vegetarian:false, vegan:false, dairyfree:false},
             images: images
         }
         this.onImageClick = this.onImageClick.bind(this)
@@ -41,6 +41,7 @@ class App extends React.Component {
         axios.post(server_endpoint, {
             lifestyle: this.state.lifestyle
         }).then(function (response) {
+
             console.log(response);
         }).catch(function (error) {
             console.log(error)

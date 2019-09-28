@@ -1,0 +1,10 @@
+.img-button {
+	max-width: 100%;
+	height: auto;
+	width: 80px;
+}
+
+.selected {
+	border: 5px solid red;
+	border-radius: 15px;
+}

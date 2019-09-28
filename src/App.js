@@ -5,6 +5,7 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 import axios from 'axios'
 
+let response = []
 const server_endpoint = 'https://travel-hackathon.herokuapp.com/api/restaurants'
 const images = [
     {id: 'kosher', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Ou_kosher.svg/600px-Ou_kosher.svg.png', title: 'Kosher'},
@@ -26,7 +27,8 @@ class App extends React.Component {
         this.state = {
             restaurants: [{name:'something', city:'london'}],
             lifestyle: {kosher:false, halal:false, vegetarian:false, vegan:false, dairyfree:false},
-            images: images
+            images: images,
+            response: response
         }
         this.onImageClick = this.onImageClick.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -41,7 +43,7 @@ class App extends React.Component {
         axios.post(server_endpoint, {
             lifestyle: this.state.lifestyle
         }).then(function (response) {
-
+            //this.setState(prevState => ({response: {...prevState.response, [id]: !prevState.lifestyle[id]}}))
             console.log(response);
         }).catch(function (error) {
             console.log(error)
